@@ -6,6 +6,7 @@ import requests
 import shutil
 from concurrent import futures
 from threading import Lock
+import random
 
 #This header is used to simulate browser
 headers={
@@ -28,6 +29,8 @@ def mythread(page_n):
             display_lock.release()
 
             filename=link.split('/')[-1]
+            #simulate human being behaviour
+            time.sleep(round(random.random(),1))
             img=requests.get(link,headers=headers)
             with open(image_dir+str(page_n)+"\\"+filename,'wb') as fw:
                 fw.write(img.content)
@@ -38,7 +41,7 @@ def mythread(page_n):
 if __name__ == "__main__":
 
     #image directory
-    image_dir="C:\\Users\\cwall\\Desktop\\images\\"
+    image_dir="C:\\Users\\myid\\Desktop\\images\\"
     #create image directory
     try:
         if os.path.isdir(image_dir):
@@ -85,5 +88,3 @@ if __name__ == "__main__":
     end_time = time.time()
     print("total time: %.2f" % (end_time - start_time))
     print("Please look all sub directories with images under directory "+image_dir)
-
-

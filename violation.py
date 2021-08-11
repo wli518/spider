@@ -12,7 +12,7 @@ import re
 
 def mythread(option_n):
         #create Chrome web driver
-        chromedriver = "C:\\Users\\xxx\\Desktop\\chromedriver"
+        chromedriver = "C:\\Users\\myid\\Desktop\\chromedriver"
         mydriver = webdriver.Chrome(chromedriver, options=webdriver.ChromeOptions())
         #start website through starting url
         mydriver.get(starting_url)
@@ -65,7 +65,7 @@ def mythread(option_n):
 ###################main######################
 if __name__ == "__main__":
     #violation file location
-    violation_file_dir="C:\\Users\\xxx\\Desktop\\violation\\"
+    violation_file_dir="C:\\Users\\myid\\Desktop\\violation\\"
     #create violation file location and open violation file for writing
     try:
         if not os.path.isdir(violation_file_dir):
